@@ -11,6 +11,7 @@ import VisionMission from "./componect/VisionMission";
 import CoreValues from "./componect/CoreValues";
 import TeamSection from "./componect/TeamSection";
 import CertificationsSection from "./componect/CertificationsSection";
+import ReviewsSection from "./componect/ReviewsSection";
 
 export default function CompanyLandingPage() {
   return (
@@ -27,9 +28,9 @@ export default function CompanyLandingPage() {
         <TeamSection />
         <CertificationsSection />
         <Services />
-
         <Work />
         <Content />
+        <ReviewsSection />
         <Footer />
 
 

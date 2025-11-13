@@ -13,7 +13,7 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* โลโก้ */}
-                    <div className="flex items-center gap-3">
+                    <Link href='/' className="flex items-center gap-3">
                         <motion.img
                             src="/images/logo.png"
                             alt="TJC"
@@ -24,7 +24,7 @@ export default function Navbar() {
                         <span className="font-semibold text-[20px] sm:text-[22px] bg-linear-to-r from-yellow-600 to-yellow-500 bg-clip-text text-transparent tracking-wide drop-shadow-[0_0_1px_rgba(0,0,0,0.2)]">
                             TJC Corporation
                         </span>
-                    </div>
+                    </Link>
 
                     {/* ปุ่มเปิดเมนูมือถือ */}
                     <button
@@ -32,31 +32,35 @@ export default function Navbar() {
                         onClick={() => setMobileMenu(!mobileMenu)}
                     >
                         <i
-                            className={`bx ${mobileMenu ? "bx-x" : "bx-menu"
-                                } text-3xl transition-transform`}
+                            className={`bx ${mobileMenu ? "bx-x" : "bx-menu"} text-3xl transition-transform`}
                         ></i>
                     </button>
 
                     {/* เมนู Desktop */}
                     <nav className="hidden md:flex items-center gap-8 text-[16px] font-medium">
                         {[
-                            { href: "#hero", label: "หน้าแรก" },
-                            { href: "#services", label: "บริการ" },
-                            { href: "#work", label: "สินค้า" },
-                            { href: "#about", label: "เกี่ยวกับเรา" },
+                            { href: "#", label: "หน้าแรก", icon: <i className='bx bxs-home'></i> } ,
+                            { href: "#services", label: "บริการ", icon:<i className='bx bxs-donate-heart'></i>  },
+                            { href: "#work", label: "สินค้า", icon: <i className='bx bx-laptop'></i>  },
+                            { href: "#about", label: "เกี่ยวกับเรา", icon: <i className='bx bxs-business'></i>  },
+                            { href: "#contact", label: "ติดต่อ", icon: <i className='bx bxs-comment-dots'></i>},
+
                         ].map((item, i) => (
                             <motion.a
                                 key={i}
                                 href={item.href}
-                                className="relative text-gray-700 hover:text-yellow-600 transition"
+                                className="relative text-gray-700 hover:text-yellow-600 transition group"
                                 whileHover={{ y: -2 }}
                             >
-                                {item.label}
+                                <div className=" flex items-center gap-2 " >
+                                    {item.label}
+                                    {item.icon}
+                                </div>
                                 <span className="absolute -bottom-1.5 left-0 w-0 h-0.5 bg-linear-to-r from-yellow-500 to-yellow-400 rounded-full transition-all duration-300 group-hover:w-full"></span>
                             </motion.a>
                         ))}
 
-                        {/* ปุ่มติดต่อ (Dropdown) */}
+                        {/* ปุ่มติดต่อ (Dropdown)
                         <div className="relative">
                             <button
                                 onClick={() => setOpen(!open)}
@@ -81,11 +85,7 @@ export default function Navbar() {
                                                     onClick={() => setOpen(false)}
                                                     className="flex items-center gap-2 px-4 py-2 hover:bg-yellow-50 transition"
                                                 >
-                                                    <img
-                                                        src="/images/line.png"
-                                                        className="w-[30px]"
-                                                        alt="line"
-                                                    />
+                                                    <img src="/images/line.png" className="w-[30px]" alt="line" />
                                                     Line
                                                 </Link>
                                             </li>
@@ -113,7 +113,7 @@ export default function Navbar() {
                                     </motion.div>
                                 )}
                             </AnimatePresence>
-                        </div>
+                        </div> */}
                     </nav>
                 </div>
             </div>
@@ -131,6 +131,8 @@ export default function Navbar() {
                         { href: "#services", label: "บริการ" },
                         { href: "#work", label: "สินค้า" },
                         { href: "#about", label: "เกี่ยวกับเรา" },
+                        { href: "#contact", label: "ติดต่อ" },
+                        // ✅ เพิ่มเมนูใบเสนอราคาในมือถือ
                     ].map((item, i) => (
                         <a
                             key={i}
@@ -143,7 +145,7 @@ export default function Navbar() {
                     ))}
 
                     {/* Dropdown Mobile */}
-                    <details className="group">
+                    {/* <details className="group">
                         <summary className="flex justify-between items-center cursor-pointer py-2 hover:text-yellow-600">
                             ติดต่อ
                             <i className="bx bx-chevron-down text-xl group-open:rotate-180 transition-transform"></i>
@@ -162,7 +164,7 @@ export default function Navbar() {
                                 <p>080-4746169</p>
                             </Link>
                         </div>
-                    </details>
+                    </details> */}
                 </nav>
             </motion.div>
         </header>

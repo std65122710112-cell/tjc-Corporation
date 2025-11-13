@@ -33,23 +33,23 @@ export default function Work() {
     ];
 
     const container = {
-        hidden: { opacity: 0, y: 40 },
+        hidden: { opacity: 0 },
         show: {
             opacity: 1,
-            y: 0,
-            transition: { staggerChildren: 0.15, when: "beforeChildren" },
+            transition: { staggerChildren: 0.2, when: "beforeChildren" },
         },
     };
 
-    const item = {
-        hidden: { opacity: 0, y: 40, scale: 0.98 },
+    // 👇 เพิ่มแรงขึ้น: y ±120 และ duration 0.9
+    const getItemVariant = (index) => ({
+        hidden: { opacity: 0, y: index % 2 === 0 ? 120 : -120, scale: 0.95 },
         show: {
             opacity: 1,
             y: 0,
             scale: 1,
-            transition: { duration: 0.6, ease: "easeOut" },
+            transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
         },
-    };
+    });
 
     return (
         <section
@@ -66,10 +66,10 @@ export default function Work() {
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                 {/* Header */}
                 <motion.div
-                    initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
+                    initial={shouldReduceMotion ? {} : { opacity: 0, y: 50 }}
                     whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    viewport={{ once: false, amount: 0.4 }} // 👈 animate every scroll into view
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: false, amount: 0.4 }}
                     className="text-center mb-12"
                 >
                     <h2
@@ -90,15 +90,15 @@ export default function Work() {
                 <motion.div
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.3 }} // 👈 animate every time visible
+                    viewport={{ once: false, amount: 0.3 }}
                     variants={container}
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
                 >
-                    {products.map((p) => (
+                    {products.map((p, index) => (
                         <motion.article
                             key={p.id}
-                            variants={item}
-                            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                            variants={getItemVariant(index)}
+                            whileHover={{ y: -10, transition: { duration: 0.3 } }}
                             className="relative group rounded-2xl bg-white border border-gray-200 overflow-hidden"
                             aria-labelledby={`product-${p.id}-title`}
                         >
@@ -166,6 +166,7 @@ export default function Work() {
                 </motion.div>
             </div>
 
+            {/* background glow */}
             <motion.div
                 aria-hidden="true"
                 className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-[700px] h-[420px] rounded-full blur-3xl bg-yellow-100/30 pointer-events-none"

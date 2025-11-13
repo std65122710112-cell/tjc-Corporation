@@ -10,30 +10,62 @@ export default function CoreValues() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      className="bg-linear-to-r from-white to-gray-50 py-16"
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: false, amount: 0.3 }} // 👈 เล่นซ้ำทุกครั้งที่เลื่อนมาเห็น
+      className="bg-linear-to-r from-white via-gray-50 to-gray-100 py-20 border-t border-gray-200"
+      id="core-values"
     >
       <div className="max-w-7xl mx-auto px-6">
-        <h3 className="text-3xl font-semibold text-gray-800 text-center mb-10">
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: false }}
+          whileHover={{ scale: 1.03, color: "#d4af37" }}
+          className="text-3xl font-bold text-gray-800 text-center mb-12 tracking-wide"
+        >
           ค่านิยมองค์กร
-        </h3>
-        <div className="grid sm:grid-cols-3 gap-6">
+        </motion.h3>
+
+        <div className="grid sm:grid-cols-3 gap-8">
           {values.map((item, i) => (
             <motion.div
               key={i}
-              whileHover={{
-                scale: 1.06,
-                backgroundColor: "rgba(255,255,240,0.9)",
-                boxShadow: "0 0 20px rgba(212,175,55,0.3)",
+              initial={{
+                opacity: 0,
+                x: i === 0 ? -80 : i === 2 ? 80 : 0,
               }}
-              className="bg-white border border-gray-200 rounded-2xl shadow-[4px_4px_0px_rgba(180,180,180,0.3)] p-6 text-center transition-all"
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              viewport={{ once: false }}
+              whileHover={{
+                scale: 1.08,
+                backgroundColor: "rgba(255,255,240,0.95)",
+                boxShadow: "0 0 25px rgba(212,175,55,0.4)",
+                transition: { duration: 0.3 },
+              }}
+              className="bg-white border border-gray-200 rounded-2xl shadow-[6px_6px_0px_rgba(180,180,180,0.25)] p-8 text-center transition-all duration-300"
             >
-              <h4 className="text-xl font-semibold text-yellow-700 mb-2">
+              <motion.h4
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: false }}
+                className="text-xl font-semibold text-yellow-700 mb-3"
+              >
                 {item.title}
-              </h4>
-              <p className="text-gray-700">{item.desc}</p>
+              </motion.h4>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                viewport={{ once: false }}
+                className="text-gray-700 leading-relaxed"
+              >
+                {item.desc}
+              </motion.p>
             </motion.div>
           ))}
         </div>

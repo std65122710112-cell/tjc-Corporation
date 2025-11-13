@@ -14,7 +14,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <div id="hero">
+        <div id="hero" className="" >
             <section className="relative overflow-hidden h-[90vh] flex items-center text-white">
                 {/* 🎥 วิดีโอพื้นหลัง */}
                 <video
@@ -29,7 +29,7 @@ export default function Hero() {
                 </video>
 
                 {/* 🌫️ เลเยอร์ทองเทาโปร่ง */}
-                <div className="absolute inset-0 bg-linear-to-t from-gray-900/80 via-gray-800/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-gray-900/90 via-gray-800/60 to-transparent"></div>
 
                 {/* ✨ เนื้อหาหลัก */}
                 <div className="relative z-10 max-w-6xl ml-[60px] px-6 lg:px-12">
@@ -42,7 +42,9 @@ export default function Hero() {
                         {/* 🏢 หัวข้อหลัก */}
                         <motion.h1
                             className="text-[42px] md:text-[52px] font-extrabold leading-tight tracking-tight 
-                                       bg-clip-text text-transparent bg-linear-to-r from-yellow-400 via-yellow-300 to-gray-100 drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
+                          text-white drop-shadow-[0_5px_12px_rgba(0,0,0,0.9)] 
+                            bg-linear-to-r from-white via-[#f8f8f8] to-[#d4af37]
+                            bg-clip-text"
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 1 }}
@@ -50,9 +52,10 @@ export default function Hero() {
                             บริษัท ทีเจซี คอร์ปอเรชั่น จำกัด
                         </motion.h1>
 
+
                         {/* 📝 คำอธิบาย */}
                         <motion.p
-                            className="mt-6 text-lg md:text-xl max-w-[600px] text-gray-200 leading-relaxed"
+                            className="mt-6 text-lg md:text-xl max-w-[600px] text-gray-100 leading-relaxed"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6, duration: 1 }}
@@ -63,23 +66,29 @@ export default function Hero() {
 
                         {/* 🔸 สถิติ */}
                         <motion.div
-                            className="mt-10 border-t border-gray-500/40 pt-8"
+                            className="mt-10 border-t border-gray-400/40 pt-8"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1.3, duration: 1 }}
                         >
                             <div className="grid grid-cols-3 gap-6 text-center">
-                                <div className="p-3 rounded-xl bg-linear-to-br from-gray-800/60 to-gray-700/30 shadow-[3px_3px_12px_rgba(0,0,0,0.3)] backdrop-blur-md">
-                                    <h3 className="text-4xl font-bold text-yellow-400 drop-shadow-md">100+</h3>
-                                    <p className="text-sm text-gray-200">ลูกค้าที่ไว้วางใจ</p>
+                                <div className="p-4 rounded-xl bg-linear-to-br from-gray-800/70 to-gray-700/40 shadow-[3px_3px_12px_rgba(0,0,0,0.3)] backdrop-blur-md">
+                                    <h3 className="text-4xl font-bold text-[#d4af37] drop-shadow-md">
+                                        100+
+                                    </h3>
+                                    <p className="text-sm text-white">ลูกค้าที่ไว้วางใจ</p>
                                 </div>
-                                <div className="p-3 rounded-xl bg-linear-to-br from-gray-800/60 to-gray-700/30 shadow-[3px_3px_12px_rgba(0,0,0,0.3)] backdrop-blur-md">
-                                    <h3 className="text-4xl font-bold text-yellow-400 drop-shadow-md">85+</h3>
-                                    <p className="text-sm text-gray-200">โปรเจกต์สำเร็จ</p>
+                                <div className="p-4 rounded-xl bg-linear-to-br from-gray-800/70 to-gray-700/40 shadow-[3px_3px_12px_rgba(0,0,0,0.3)] backdrop-blur-md">
+                                    <h3 className="text-4xl font-bold text-[#d4af37] drop-shadow-md">
+                                        85+
+                                    </h3>
+                                    <p className="text-sm text-white">โปรเจกต์สำเร็จ</p>
                                 </div>
-                                <div className="p-3 rounded-xl bg-linear-to-br from-gray-800/60 to-gray-700/30 shadow-[3px_3px_12px_rgba(0,0,0,0.3)] backdrop-blur-md">
-                                    <h3 className="text-4xl font-bold text-yellow-400 drop-shadow-md">10 ปี</h3>
-                                    <p className="text-sm text-gray-200">ประสบการณ์ในวงการ</p>
+                                <div className="p-4 rounded-xl bg-linear-to-br from-gray-800/70 to-gray-700/40 shadow-[3px_3px_12px_rgba(0,0,0,0.3)] backdrop-blur-md">
+                                    <h3 className="text-4xl font-bold text-[#d4af37] drop-shadow-md">
+                                        10 ปี
+                                    </h3>
+                                    <p className="text-sm text-white">ประสบการณ์ในวงการ</p>
                                 </div>
                             </div>
                         </motion.div>

@@ -38,7 +38,7 @@ export default function Contact() {
                             <div>
                                 <p className="text-sm text-gray-500">อีเมล</p>
                                 <p className="font-semibold hover:text-[#bfa334] transition">
-                                    hello@company.co
+                                    TJC.OFFICE21@gmail.com
                                 </p>
                             </div>
                         </div>
@@ -48,7 +48,17 @@ export default function Contact() {
                             <div>
                                 <p className="text-sm text-gray-500">โทรศัพท์</p>
                                 <p className="font-semibold hover:text-[#bfa334] transition">
-                                    099-420-0837
+                                    099-413-2744
+                                </p>
+                            </div>
+                        </div>
+
+                         <div className="flex items-start gap-4">
+                            <i className="bx bx-phone-call text-[#d4af37] text-2xl mt-1"></i>
+                            <div>
+                                <p className="text-sm text-gray-500">เบอร์กลางบริษัท HR</p>
+                                <p className="font-semibold hover:text-[#bfa334] transition">
+                                    080-474-6169
                                 </p>
                             </div>
                         </div>
