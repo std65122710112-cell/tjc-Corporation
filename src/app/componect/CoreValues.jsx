@@ -13,22 +13,34 @@ export default function CoreValues() {
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: false, amount: 0.3 }} // 👈 เล่นซ้ำทุกครั้งที่เลื่อนมาเห็น
+      viewport={{ once: false, amount: 0.3 }}
       className="bg-linear-to-r from-white via-gray-50 to-gray-100 py-20 border-t border-gray-200"
       id="core-values"
     >
       <div className="max-w-7xl mx-auto px-6">
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: false }}
-          whileHover={{ scale: 1.03, color: "#d4af37" }}
-          className="text-3xl font-bold text-gray-800 text-center mb-12 tracking-wide"
-        >
-          ค่านิยมองค์กร
-        </motion.h3>
+        {/* หัวข้อหลัก */}
+        <div className="text-center mb-12">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+            className="text-3xl font-bold text-gray-800 tracking-wide"
+          >
+            ค่านิยมองค์กร
+          </motion.h3>
 
+          {/* เส้นอนิเมชัน */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: false }}
+            className="w-24 h-[3px] bg-gradient-to-r from-yellow-500 to-yellow-600 mx-auto mt-3 rounded-full origin-center"
+          />
+        </div>
+
+        {/* กล่องแต่ละค่านิยม */}
         <div className="grid sm:grid-cols-3 gap-8">
           {values.map((item, i) => (
             <motion.div

@@ -18,7 +18,6 @@ export default function AboutHeader() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: false }}
-          whileHover={{ scale: 1.05, color: "#d4af37" }}
           className="text-4xl font-bold text-gray-800 mb-3 tracking-wide"
         >
           เกี่ยวกับเรา
