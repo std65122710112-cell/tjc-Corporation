@@ -16,17 +16,20 @@ export default function Hero() {
     return (
         <div id="hero" >
             <div className=" w-full h-16  " ></div>
-            <section  className="relative overflow-hidden h-[90vh] flex items-center text-white">
+            <section className="relative overflow-hidden h-[90vh] flex items-center text-white">
                 {/* 🔹 วิดีโอพื้นหลัง */}
                 <video
-                    ref={videoRef}
-                    className="absolute inset-0 w-full h-full object-cover"
                     autoPlay
                     loop
                     muted
                     playsInline
-                    src="/video/tjccoporation.mp4"
-                />
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                >
+                    <source
+                        src="/video/1112.mp4"
+                        type="video/mp4"
+                    />
+                </video>
 
                 {/* 🔹 เลเยอร์ทึบโปร่ง */}
                 <div className="absolute inset-0 bg-black/50"></div>
