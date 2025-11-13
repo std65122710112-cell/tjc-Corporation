@@ -1,25 +1,40 @@
-import React from 'react'
+"use client";
+import React from "react";
 
 export default function Footer() {
     return (
-        <div>
-            <footer className="bg-white border-t mt-12">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-md  from-indigo-500 to-pink-500 text-white flex items-center justify-center font-bold">C</div>
-                        <div>
-                            <div className="text-sm font-semibold">Company</div>
-                            <div className="text-xs text-slate-500">© {new Date().getFullYear()} Company Co. All rights reserved.</div>
-                        </div>
-                    </div>
+        <footer className="bg-linear-to-br from-white via-gray-50 to-gray-100 border-t border-gray-200 mt-16">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
 
-                    <nav className="flex gap-4 text-sm text-slate-600">
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                        <a href="#">Sitemap</a>
-                    </nav>
+                {/* 🔸 โลโก้ + ชื่อบริษัท */}
+                <div className="flex items-center gap-3">
+                    <img src="images/logo.png" alt="" className=" w-14 "  />
+                    <div>
+                        <p className="text-base font-semibold text-gray-800">
+                            TJC Corporation
+                        </p>
+                        <p className="text-sm text-gray-500">
+                            © {new Date().getFullYear()} TJC Corporation. All rights reserved.
+                        </p>
+                    </div>
                 </div>
-            </footer>
-        </div>
-    )
+
+                {/* 🔸 ลิงก์เมนูฟุตเตอร์ */}
+                <nav className="flex gap-6 text-sm text-gray-600 font-medium">
+                    <a
+                        href="#privacy"
+                        className="hover:text-[#bfa334] transition-colors duration-200"
+                    >
+                        นโยบายความเป็นส่วนตัว
+                    </a>
+                    <a
+                        href="#terms"
+                        className="hover:text-[#bfa334] transition-colors duration-200"
+                    >
+                        เงื่อนไขการใช้งาน
+                    </a>
+                </nav>
+            </div>
+        </footer>
+    );
 }

@@ -1,145 +1,177 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Work() {
+    const shouldReduceMotion = useReducedMotion();
+
     const products = [
         {
             id: 1,
-            name: "อุปกรณ์คอมพิวเตอร์",
+            name: "อุปกรณ์วิทยาศาสตร์และเครื่องมือทดลองทางการศึกษา",
             image: "/images/JTEC.png",
-            desc: "คอมพิวเตอร์และอุปกรณ์ต่อพ่วงคุณภาพสูงสำหรับองค์กรและสำนักงาน",
+            desc: "อุปกรณ์และเครื่องมือทดลองคุณภาพสูงสำหรับการเรียนการสอนและห้องปฏิบัติการ",
         },
         {
             id: 2,
-            name: "อุปกรณ์สำนักงานครบชุด",
+            name: "อุปกรณ์ฉายภาพ, สื่อโฆษณา และมัลติมีเดีย",
             image: "/images/origina.png",
-            desc: "เครื่องใช้สำนักงานครบวงจร เพิ่มประสิทธิภาพการทำงานในทุกวัน",
+            desc: "โซลูชันมัลติมีเดียสำหรับงานนำเสนอและโฆษณา ตั้งแต่โปรเจคเตอร์ถึงจอ LED",
         },
         {
             id: 3,
-            name: "อุปกรณ์ไอที",
+            name: "อุปกรณ์ไอทีและคอมพิวเตอร์",
             image: "/images/page.png",
-            desc: "อุปกรณ์เครือข่ายและเทคโนโลยีไอทีที่เสถียรและปลอดภัย",
+            desc: "พีซี โน้ตบุ๊ค อุปกรณ์เครือข่ายและโซลูชันไอทีสำหรับองค์กรทุกขนาด",
         },
         {
             id: 4,
-            name: "ครุภัณฑ์ทางการศึกษา",
+            name: "ครุภัณฑ์ทางการศึกษา และ ครุภัณฑ์สำนักงาน",
             image: "/images/SMEGP.png",
-            desc: "ชุดครุภัณฑ์และอุปกรณ์เพื่อการเรียนรู้ยุคดิจิทัล",
+            desc: "ครุภัณฑ์ที่ทนทาน ออกแบบเพื่อการเรียนการสอนและการใช้งานในสำนักงาน",
         },
     ];
+
+    const container = {
+        hidden: { opacity: 0, y: 40 },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { staggerChildren: 0.15, when: "beforeChildren" },
+        },
+    };
+
+    const item = {
+        hidden: { opacity: 0, y: 40, scale: 0.98 },
+        show: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: { duration: 0.6, ease: "easeOut" },
+        },
+    };
 
     return (
         <section
             id="work"
-            className="relative bg-linear-to-b from-white via-green-50/30 to-white py-24 overflow-hidden"
+            aria-labelledby="work-heading"
+            className="relative bg-linear-to-b from-white via-gray-50 to-white py-20 overflow-hidden"
         >
+            {/* soft gold glow */}
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-24 -right-24 w-[380px] h-[380px] rounded-full bg-yellow-200/20 blur-3xl"
+            />
+
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-                {/* 🔹 หัวข้อ */}
+                {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, x: -40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    viewport={{ once: false }}
-                    className="text-center mb-7"
+                    initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
+                    whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: false, amount: 0.4 }} // 👈 animate every scroll into view
+                    className="text-center mb-12"
                 >
-                    <h2 className="text-4xl font-bold text-gray-800 tracking-tight">
+                    <h2
+                        id="work-heading"
+                        className="text-3xl md:text-4xl font-extrabold text-gray-800"
+                    >
                         สินค้าและโซลูชันของเรา
                     </h2>
-                    <p className="mt-3 text-gray-600 text-lg">
-                        นวัตกรรม เทคโนโลยี และคุณภาพที่องค์กรไว้วางใจ
+                    <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+                        เราเลือกสรรสินค้าที่เน้นคุณภาพ ทนทาน และตอบโจทย์การใช้งานจริงสำหรับองค์กร สถาบันการศึกษา และธุรกิจ
                     </p>
-                    <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: 96 }}
-                        transition={{ duration: 0.3 }}
-                        viewport={{ once: false }}
-                        className="mt-4 h-[3px] bg-green-600 mx-auto rounded-full"
-                    ></motion.div>
+                    <div className="mt-6 flex justify-center">
+                        <span className="inline-block h-1 w-28 rounded-full bg-linear-to-r from-yellow-400 to-yellow-500" />
+                    </div>
                 </motion.div>
 
-                {/* 🔹 สินค้า */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                    {products.map((product, index) => {
-                        const direction = index % 2 === 0 ? -50 : 50;
-                        return (
-                            <motion.div
-                                key={product.id}
-                                initial={{ opacity: 0, y: direction }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.45,
-                                    delay: index * 0.08,
-                                    ease: [0.25, 0.46, 0.45, 0.94],
+                {/* Grid */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.3 }} // 👈 animate every time visible
+                    variants={container}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {products.map((p) => (
+                        <motion.article
+                            key={p.id}
+                            variants={item}
+                            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                            className="relative group rounded-2xl bg-white border border-gray-200 overflow-hidden"
+                            aria-labelledby={`product-${p.id}-title`}
+                        >
+                            <div
+                                className="absolute inset-0 rounded-2xl pointer-events-none"
+                                style={{
+                                    boxShadow:
+                                        "inset 0 0 0 1.5px rgba(212,175,55,0.18), inset -6px -6px 20px rgba(255,255,255,0.6)",
                                 }}
-                                viewport={{ once: false, amount: 0.3 }}
-                                whileHover={{
-                                    scale: 1.05,
-                                    y: -6,
-                                    boxShadow: "0px 10px 25px rgba(16,185,129,0.25)",
-                                    transition: { duration: 0.25 },
-                                }}
-                                className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md hover:shadow-2xl transition-all duration-300"
-                            >
-                                {/* ภาพสินค้า */}
-                                <div className="overflow-hidden relative">
+                            />
+                            <div className="relative z-10 flex flex-col h-full">
+                                <div className="h-48 sm:h-44 md:h-48 overflow-hidden bg-gray-50">
                                     <motion.img
-                                        src={product.image}
-                                        alt={product.name}
-                                        className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
-                                        whileHover={{ scale: 1.08 }}
+                                        src={p.image}
+                                        alt={p.name}
+                                        className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy"
                                     />
-
-                                    {/* overlay fade-in */}
-                                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                                    {/* ข้อความ overlay */}
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 15 }}
-                                        whileHover={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.25 }}
-                                        className="absolute bottom-4 left-0 w-full text-center text-white opacity-0 group-hover:opacity-100 transition duration-300"
-                                    >
-                                        <p className="text-sm font-medium">
-                                            คลิกเพื่อดูรายละเอียดเพิ่มเติม
-                                        </p>
-                                    </motion.div>
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </div>
 
-                                {/* เนื้อหา */}
-                                <div className="p-6">
-                                    <h4 className="font-semibold text-lg text-gray-800 text-center group-hover:text-green-700 transition-colors duration-200">
-                                        {product.name}
-                                    </h4>
-                                    <p className="mt-3 text-sm text-gray-500 leading-relaxed text-center">
-                                        {product.desc || "โซลูชันคุณภาพสำหรับธุรกิจยุคใหม่"}
-                                    </p>
+                                <div className="p-6 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3
+                                            id={`product-${p.id}-title`}
+                                            className="text-lg font-semibold text-gray-800 mb-2"
+                                        >
+                                            {p.name}
+                                        </h3>
+                                        <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                                            {p.desc}
+                                        </p>
+                                    </div>
 
-                                    <div className="mt-5 text-center">
+                                    <div className="flex items-center justify-between mt-4">
                                         <a
                                             href="#"
-                                            className="inline-flex items-center text-sm font-medium text-green-700 hover:text-green-800 transition-all group"
+                                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-yellow-700 border border-yellow-200 bg-yellow-50 hover:bg-yellow-100 transition"
                                         >
                                             ดูรายละเอียด
-                                            <span className="ml-1 group-hover:translate-x-1 transition-transform duration-200">
+                                            <span
+                                                aria-hidden="true"
+                                                className="transform transition-transform group-hover:translate-x-1"
+                                            >
                                                 →
                                             </span>
                                         </a>
+                                        <div className="text-xs text-gray-400">
+                                            SKU: {1000 + p.id}
+                                        </div>
                                     </div>
                                 </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
+                            </div>
+
+                            <div
+                                aria-hidden="true"
+                                className="absolute -bottom-4 -left-4 w-[85%] h-10 rounded-2xl"
+                                style={{
+                                    boxShadow:
+                                        "8px 8px 30px rgba(0,0,0,0.08), -8px -8px 20px rgba(255,255,255,0.7)",
+                                }}
+                            />
+                        </motion.article>
+                    ))}
+                </motion.div>
             </div>
 
-            {/* 🌟 แสงพื้นหลังเคลื่อนไหวเบา ๆ */}
             <motion.div
-                initial={{ opacity: 0.2, x: -300 }}
-                animate={{ opacity: 0.3, x: [-300, 300, -300] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} // 🔹 เร็วขึ้น
-                className="absolute top-0 left-1/2 w-[500px] h-[500px] bg-green-200/40 rounded-full blur-3xl"
+                aria-hidden="true"
+                className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-[700px] h-[420px] rounded-full blur-3xl bg-yellow-100/30 pointer-events-none"
+                initial={shouldReduceMotion ? {} : { opacity: 0.08, x: -200 }}
+                animate={shouldReduceMotion ? {} : { opacity: 0.18, x: [-200, 200, -200] }}
+                transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
             />
         </section>
     );
