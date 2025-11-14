@@ -33,6 +33,34 @@ export default function NewsSlider() {
             date: "6 มี.ค. 2568",
             image: "/images/Screenshot 2025-06-03 101538.png",
         },
+        {
+            id: 5,
+            title: "ร่วมสนับสนุนการเเข่งขันกีฬา",
+            desc: "ระบบจัดส่งอัจฉริยะและบริการติดตั้งแบบ Smart Installation",
+            date: "12 พ.ย. 2025",
+            image: "/images/05.jpg",
+        },
+        {
+            id: 6,
+            title: "ร่วมสนับสนุนการเเข่งขันกีฬา",
+            desc: "ระบบจัดส่งอัจฉริยะและบริการติดตั้งแบบ Smart Installation",
+            date: "12 พ.ย. 2025",
+            image: "/images/05.jpg",
+        },
+        {
+            id: 7,
+            title: "ร่วมสนับสนุนการเเข่งขันกีฬา",
+            desc: "ระบบจัดส่งอัจฉริยะและบริการติดตั้งแบบ Smart Installation",
+            date: "12 พ.ย. 2025",
+            image: "/images/05.jpg",
+        },
+        {
+            id: 8,
+            title: "ร่วมสนับสนุนการเเข่งขันกีฬา",
+            desc: "ระบบจัดส่งอัจฉริยะและบริการติดตั้งแบบ Smart Installation",
+            date: "12 พ.ย. 2025",
+            image: "/images/05.jpg",
+        },
     ];
 
     const scroll = (direction) => {
@@ -56,7 +84,7 @@ export default function NewsSlider() {
             const cardWidth = el.querySelector(".news-card")?.clientWidth || 350;
             const maxScroll = el.scrollWidth - el.clientWidth;
 
-            if (el.scrollLeft + cardWidth >= maxScroll - 10) {
+            if (el.scrollLeft + cardWidth >= maxScroll) {
                 el.scrollTo({ left: 0, behavior: "smooth" });
             } else {
                 el.scrollBy({ left: cardWidth, behavior: "smooth" });
@@ -73,46 +101,42 @@ export default function NewsSlider() {
                 .no-scrollbar { scrollbar-width: none; }
             `}</style>
 
-            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-10 relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
 
-                <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-10">
+                <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
                     ข่าวสารบริษัท
                 </h2>
 
-                {/* LEFT BUTTON */}
+                {/* LEFT */}
                 <button
                     onClick={() => scroll("left")}
                     className="
-                        absolute top-1/2 -translate-y-1/2
-                        xl:flex lg:flex hidden
-                        left-2 z-20 bg-white/90 backdrop-blur
-                        border border-gray-300 shadow p-4 rounded-full
-                        hover:bg-gray-100 transition
+                        absolute top-1/2 -translate-y-1/2 sm:flex hidden
+                        left-0 z-20 bg-white/90 backdrop-blur
+                        border border-gray-300 shadow p-3 rounded-full
                     "
                 >
                     {"<"}
                 </button>
 
-                {/* RIGHT BUTTON */}
+                {/* RIGHT */}
                 <button
                     onClick={() => scroll("right")}
                     className="
-                        absolute top-1/2 -translate-y-1/2
-                        xl:flex lg:flex hidden
-                        right-2 z-20 bg-white/90 backdrop-blur
-                        border border-gray-300 shadow p-4 rounded-full
-                        hover:bg-gray-100 transition
+                        absolute top-1/2 -translate-y-1/2 sm:flex hidden
+                        right-0 z-20 bg-white/90 backdrop-blur
+                        border border-gray-300 shadow p-3 rounded-full
                     "
                 >
                     {">"}
                 </button>
 
-                {/* SLIDER LIST */}
+                {/* SLIDER */}
                 <div
                     ref={containerRef}
                     className="
-                        flex gap-6 overflow-x-auto no-scrollbar pb-4
-                        snap-x snap-mandatory select-none
+                        flex gap-4 overflow-x-auto no-scrollbar pb-3
+                        snap-x snap-mandatory
                     "
                 >
                     {news.map((n) => (
@@ -121,29 +145,36 @@ export default function NewsSlider() {
                             className="
                                 news-card snap-start
                                 bg-white border border-gray-200 shadow-md rounded-2xl overflow-hidden
-                                w-full min-w-full                 /* Mobile */
-                                sm:min-w-[60%] sm:w-[60%]        /* Tablet */
-                                lg:min-w-[33.33%] lg:w-[33.33%]  /* Desktop */
-                                2xl:min-w-[25%] 2xl:w-[25%]       /* Ultra Wide */
                                 transition-all duration-300
+
+                                /* --- Responsive Width --- */
+                                min-w-[95%] max-w-[95%]              /* xxs, xs */
+                                xs:min-w-[90%] xs:max-w-[90%]
+                                sm:min-w-[60%] sm:max-w-[60%]      /* sm = 640px */
+                                md:min-w-[50%] md:max-w-[50%]      /* md = tablet */
+                                lg:min-w-[33%] lg:max-w-[33%]      /* laptop */
+                                xl:min-w-[30%] xl:max-w-[30%]      /* large laptop */
+                                2xl:min-w-[25%] 2xl:max-w-[25%]    /* 2K */
+                                3xl:min-w-[22%] 3xl:max-w-[22%]    /* 1900px */
+                                4xl:min-w-[20%] 4xl:max-w-[20%]    /* 4K ultra wide */
                             "
                         >
                             <img
                                 src={n.image}
-                                className="w-full h-56 sm:h-48 object-cover"
+                                className="w-full h-48 xs:h-52 sm:h-56 md:h-60 lg:h-52 xl:h-56 object-cover"
                                 alt={n.title}
                             />
 
-                            <div className="p-6">
+                            <div className="p-5">
                                 <p className="text-sm text-yellow-700 font-medium">
                                     {n.date}
                                 </p>
 
-                                <h3 className="text-xl sm:text-lg font-semibold text-gray-900 mt-1">
+                                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mt-1">
                                     {n.title}
                                 </h3>
 
-                                <p className="text-gray-600 mt-2 leading-relaxed">
+                                <p className="text-gray-600 mt-2 leading-relaxed text-sm md:text-base">
                                     {n.desc}
                                 </p>
                             </div>

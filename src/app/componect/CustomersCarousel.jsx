@@ -13,7 +13,7 @@ export default function CustomersCarousel({
         "/images/customers/c07-removebg-preview.png",
         "/images/customers/c08-removebg-preview.png",
         "/images/customers/c09-removebg-preview.png",
-        "/images/customers/c10-removebg-preview.png",
+        "/images/customers/c010-removebg-preview.png",
         "/images/customers/c11-removebg-preview.png",
         "/images/customers/c01.png",
     ],
