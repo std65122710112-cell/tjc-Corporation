@@ -33,6 +33,35 @@ export default function NewsSlider() {
             date: "6 มี.ค. 2568",
             image: "/images/Screenshot 2025-06-03 101538.png",
         },
+        {
+            id: 5,
+            title: "ร่วมสนับสนุนการเเข่งขันกีฬา",
+            desc: "ระบบจัดส่งอัจฉริยะและบริการติดตั้งแบบ Smart Installation",
+            date: "12 พ.ย. 2025",
+            image: "/images/05.jpg",
+        },
+        {
+            id: 6,
+            title: "ร่วมสนับสนุนการเเข่งขันกีฬา",
+            desc: "ระบบจัดส่งอัจฉริยะและบริการติดตั้งแบบ Smart Installation",
+            date: "12 พ.ย. 2025",
+            image: "/images/05.jpg",
+        },
+        {
+            id: 7,
+            title: "ร่วมสนับสนุนการเเข่งขันกีฬา",
+            desc: "ระบบจัดส่งอัจฉริยะและบริการติดตั้งแบบ Smart Installation",
+            date: "12 พ.ย. 2025",
+            image: "/images/05.jpg",
+        },
+        {
+            id: 8,
+            title: "ร่วมสนับสนุนการเเข่งขันกีฬา",
+            desc: "ระบบจัดส่งอัจฉริยะและบริการติดตั้งแบบ Smart Installation",
+            date: "12 พ.ย. 2025",
+            image: "/images/05.jpg",
+        },
+        
     ];
 
     const scroll = (direction) => {
