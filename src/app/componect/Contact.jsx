@@ -44,11 +44,13 @@ export default function Contact() {
                         </p>
                     </div>
 
-                    <div className="space-y-5 text-gray-700">
+                    <div className="space-y-0 flex flex-col gap-4 text-gray-700">
 
                         {/* Email */}
                         <div className="flex items-start gap-4">
-                            <i className="bx bx-envelope text-[#bfa334] text-2xl mt-1"></i>
+                            <div className="w-8 text-center">
+                                <i className="bx bx-envelope text-[#bfa334] text-2xl"></i>
+                            </div>
                             <div>
                                 <p className="text-sm text-gray-500">อีเมล</p>
                                 <p className="font-semibold hover:text-[#bfa334] transition">
@@ -58,20 +60,26 @@ export default function Contact() {
                         </div>
 
                         {/* Phone */}
-                        <div className="flex items-start gap-4">
-                            <i className="bx bx-phone-call text-[#bfa334] text-2xl mt-1"></i>
-                            <div>
-                                <p className="text-sm text-gray-500">โทรศัพท์</p>
-                                <p className="font-semibold hover:text-[#bfa334] transition">
-                                    099-413-2744
-                                </p>
+                        <Link href="tel:0994132744">
+                            <div className="flex items-start gap-4 cursor-pointer">
+                                <div className="w-8 text-center">
+                                    <i className="bx bx-phone-call text-[#bfa334] text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p className="text-sm text-gray-500">โทรศัพท์</p>
+                                    <p className="font-semibold hover:text-[#bfa334] transition">
+                                        099-413-2744
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
 
                         {/* HR Phone */}
-                        <Link href="tel:0807382155">
+                        <Link href="tel:0804746169">
                             <div className="flex items-start gap-4 cursor-pointer">
-                                <i className="bx bx-phone-call text-[#bfa334] text-2xl mt-1"></i>
+                                <div className="w-8 text-center">
+                                    <i className="bx bx-phone-call text-[#bfa334] text-2xl"></i>
+                                </div>
                                 <div>
                                     <p className="text-sm text-gray-500">เบอร์กลางบริษัท HR</p>
                                     <p className="font-semibold hover:text-[#bfa334] transition">
@@ -81,10 +89,12 @@ export default function Contact() {
                             </div>
                         </Link>
 
-                        {/* Line Official */}
+                        {/* Line OA */}
                         <Link href="https://line.me/ti/p/dGpNTpUUdq" target="_blank">
                             <div className="flex items-start gap-4 cursor-pointer">
-                                <img src="/images/line2.png" alt="Line OA" className="w-8" />
+                                <div className="w-8 text-center">
+                                    <img src="/images/line2.png" className="w-7 mx-auto" />
+                                </div>
                                 <div>
                                     <p className="text-sm text-gray-500">Line Official</p>
                                     <p className="font-semibold hover:text-[#bfa334] transition">
@@ -94,10 +104,11 @@ export default function Contact() {
                             </div>
                         </Link>
 
-
                         {/* Address */}
                         <div className="flex items-start gap-4">
-                            <i className="bx bx-map text-[#bfa334] text-2xl mt-1"></i>
+                            <div className="w-8 text-center pt-1">
+                                <i className="bx bx-map text-[#bfa334] text-2xl"></i>
+                            </div>
                             <div>
                                 <p className="text-sm text-gray-500">ที่อยู่</p>
                                 <p className="font-semibold leading-relaxed">
@@ -109,7 +120,9 @@ export default function Contact() {
 
                         {/* Time */}
                         <div className="flex items-start gap-4">
-                            <i className="bx bx-time text-[#bfa334] text-2xl mt-1"></i>
+                            <div className="w-8 text-center">
+                                <i className="bx bx-time text-[#bfa334] text-2xl"></i>
+                            </div>
                             <div>
                                 <p className="text-sm text-gray-500">เวลาทำการ</p>
                                 <p className="font-semibold">
@@ -119,6 +132,8 @@ export default function Contact() {
                         </div>
 
                     </div>
+
+
                 </motion.div>
 
                 {/* 🗺️ แผนที่ */}

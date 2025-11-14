@@ -13,6 +13,7 @@ import TeamSection from "./componect/TeamSection";
 import CertificationsSection from "./componect/CertificationsSection";
 import ReviewsSection from "./componect/ReviewsSection";
 import NewsSection from "./componect/NewsSection";
+import CustomersCarousel from "./componect/CustomersCarousel";
 
 export default function CompanyLandingPage() {
   return (
@@ -31,7 +32,8 @@ export default function CompanyLandingPage() {
         <Work />
         <NewsSection />
         <Content />
-        <ReviewsSection />
+        <CustomersCarousel />
+        {/* <ReviewsSection /> */}
         <Footer />
 
 
