@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function TeamSection() {
   const [previewImg, setPreviewImg] = useState(null);
+  const [isReadyToHover, setIsReadyToHover] = useState(false); // <-- เพิ่ม
 
   const members = [
     { name: "นายสนั่น สุตัญจั้งใจ", role: "ประธานบริษัท", img: "/images/executive01.jpg" },
@@ -71,13 +72,18 @@ export default function TeamSection() {
                     x: 0,
                     transition: { duration: 0.7 + i * 0.15, ease: "easeOut" },
                   }}
-                  viewport={{ once: false, amount: 0.25 }}
-                  whileHover={{
-                    scale: 1.03,
-                    boxShadow: "0 6px 20px rgba(212,175,55,0.28)",
-                    backgroundColor: "rgba(255,255,255,0.95)",
-                    transition: { duration: 0.28 },
-                  }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  onAnimationComplete={() => setIsReadyToHover(true)} // <-- อนุญาต hover เมื่ออนิเมชันจบ
+                  whileHover={
+                    isReadyToHover
+                      ? {
+                        scale: 1.03,
+                        boxShadow: "0 6px 20px rgba(212,175,55,0.28)",
+                        backgroundColor: "rgba(255,255,255,0.95)",
+                        transition: { duration: 0.28 },
+                      }
+                      : {}
+                  }
                   className="
                     flex items-center gap-4 sm:gap-5 
                     bg-white rounded-2xl 

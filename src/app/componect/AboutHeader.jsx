@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function AboutHeader() {
+  const [isReadyToHover, setIsReadyToHover] = useState(false); // <-- เพิ่ม
+
   const items = [
     {
       title: "วิสัยทัศน์",
@@ -129,13 +131,18 @@ export default function AboutHeader() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.3 }}
-            whileHover={{
-              scale: isMobile ? 1.015 : 1.045,
-              y: isMobile ? -2 : -4,
-              transition: { type: "spring", stiffness: 180, damping: 14 },
-              boxShadow:
-                "0 14px 30px rgba(212,175,55,0.18), 0 0 10px rgba(150,150,150,0.1)",
-            }}
+            onAnimationComplete={() => setIsReadyToHover(true)} // <-- เปิด hover หลังอนิเมชันจบ
+            whileHover={
+              isReadyToHover
+                ? {
+                  scale: isMobile ? 1.015 : 1.045,
+                  y: isMobile ? -2 : -4,
+                  transition: { type: "spring", stiffness: 180, damping: 14 },
+                  boxShadow:
+                    "0 14px 30px rgba(212,175,55,0.18), 0 0 10px rgba(150,150,150,0.1)",
+                }
+                : {}
+            }
             className="
               bg-white border border-gray-200
               rounded-xl
