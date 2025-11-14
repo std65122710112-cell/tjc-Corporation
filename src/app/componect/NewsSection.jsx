@@ -30,7 +30,7 @@ export default function NewsSlider() {
             id: 4,
             title: "สนับสนุนทีมปิงปองหงส์ขาว",
             desc: "ระบบจัดส่งอัจฉริยะและบริการติดตั้งแบบ Smart Installation",
-            date: "6 มิ.ค. 2568",
+            date: "6 มี.ค. 2568",
             image: "/images/Screenshot 2025-06-03 101538.png",
         },
     ];
@@ -56,12 +56,12 @@ export default function NewsSlider() {
             const cardWidth = el.querySelector(".news-card")?.clientWidth || 350;
             const maxScroll = el.scrollWidth - el.clientWidth;
 
-            if (el.scrollLeft + cardWidth >= maxScroll) {
+            if (el.scrollLeft + cardWidth >= maxScroll - 10) {
                 el.scrollTo({ left: 0, behavior: "smooth" });
             } else {
                 el.scrollBy({ left: cardWidth, behavior: "smooth" });
             }
-        }, 1500);
+        }, 2500);
 
         return () => clearInterval(interval);
     }, []);
@@ -73,44 +73,47 @@ export default function NewsSlider() {
                 .no-scrollbar { scrollbar-width: none; }
             `}</style>
 
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-10 relative">
 
-                <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
+                <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-10">
                     ข่าวสารบริษัท
                 </h2>
 
-                {/* LEFT */}
+                {/* LEFT BUTTON */}
                 <button
                     onClick={() => scroll("left")}
                     className="
-                        absolute top-1/2 -translate-y-1/2 sm:flex hidden
-                        left-0 z-20 bg-white/90 backdrop-blur
-                        border border-gray-300 shadow p-3 rounded-full
+                        absolute top-1/2 -translate-y-1/2
+                        xl:flex lg:flex hidden
+                        left-2 z-20 bg-white/90 backdrop-blur
+                        border border-gray-300 shadow p-4 rounded-full
+                        hover:bg-gray-100 transition
                     "
                 >
                     {"<"}
                 </button>
 
-                {/* RIGHT */}
+                {/* RIGHT BUTTON */}
                 <button
                     onClick={() => scroll("right")}
                     className="
-                        absolute top-1/2 -translate-y-1/2 sm:flex hidden
-                        right-0 z-20 bg-white/90 backdrop-blur
-                        border border-gray-300 shadow p-3 rounded-full
+                        absolute top-1/2 -translate-y-1/2
+                        xl:flex lg:flex hidden
+                        right-2 z-20 bg-white/90 backdrop-blur
+                        border border-gray-300 shadow p-4 rounded-full
+                        hover:bg-gray-100 transition
                     "
                 >
                     {">"}
                 </button>
 
-                {/* SLIDER */}
+                {/* SLIDER LIST */}
                 <div
                     ref={containerRef}
                     className="
-                        flex gap-4 overflow-x-auto no-scrollbar pb-3
-                        snap-x snap-mandatory
+                        flex gap-6 overflow-x-auto no-scrollbar pb-4
+                        snap-x snap-mandatory select-none
                     "
-                    style={{ scrollBehavior: "smooth" }}
                 >
                     {news.map((n) => (
                         <div
@@ -118,19 +121,20 @@ export default function NewsSlider() {
                             className="
                                 news-card snap-start
                                 bg-white border border-gray-200 shadow-md rounded-2xl overflow-hidden
-                                w-full min-w-full                 /* Mobile = 1 card */
-                                sm:min-w-[50%] sm:w-[50%]             /* Tablet = 2 card */
-                                lg:min-w-[33.33%] lg:w-[33.33%]       /* Desktop = 3 card */
+                                w-full min-w-full                 /* Mobile */
+                                sm:min-w-[60%] sm:w-[60%]        /* Tablet */
+                                lg:min-w-[33.33%] lg:w-[33.33%]  /* Desktop */
+                                2xl:min-w-[25%] 2xl:w-[25%]       /* Ultra Wide */
                                 transition-all duration-300
                             "
                         >
                             <img
                                 src={n.image}
-                                className="w-full h-48 sm:h-44 object-cover"
+                                className="w-full h-56 sm:h-48 object-cover"
                                 alt={n.title}
                             />
 
-                            <div className="p-5">
+                            <div className="p-6">
                                 <p className="text-sm text-yellow-700 font-medium">
                                     {n.date}
                                 </p>
