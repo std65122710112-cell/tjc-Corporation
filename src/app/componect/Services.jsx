@@ -89,7 +89,7 @@ export default function Services() {
                   "6px 6px 0px rgba(0,0,0,0.25), -3px -3px 0px rgba(255,255,255,0.6)",
               }}
               transition={{ duration: 0.3 }}
-              className="group bg-white rounded-2xl p-6 border-l-3 border-b-3 border-yellow-500 shadow-[5px_5px_5px_rgba(0,0,0,0.25),-3px_-3px_0px_rgba(255,255,255,0.7)] transition-all duration-300"
+              className="group bg-white rounded-2xl p-6 border-l-4 border-b-3 border-yellow-500 shadow-[5px_5px_5px_rgba(0,0,0,0.25),-3px_-3px_0px_rgba(255,255,255,0.7)] transition-all duration-300"
             >
               {/* Image */}
               <motion.div

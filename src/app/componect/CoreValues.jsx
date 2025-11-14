@@ -36,7 +36,7 @@ export default function CoreValues() {
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: false }}
-            className="w-24 h-[3px] bg-gradient-to-r from-yellow-500 to-yellow-600 mx-auto mt-3 rounded-full origin-center"
+            className="w-24 h-[3px] bg-linear-to-r from-yellow-500 to-yellow-600 mx-auto mt-3 rounded-full origin-center"
           />
         </div>
 

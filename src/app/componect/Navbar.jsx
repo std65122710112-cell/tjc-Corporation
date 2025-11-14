@@ -39,11 +39,12 @@ export default function Navbar() {
                     {/* เมนู Desktop */}
                     <nav className="hidden md:flex items-center gap-8 text-[16px] font-medium">
                         {[
-                            { href: "#", label: "หน้าแรก", icon: <i className='bx bxs-home'></i> } ,
-                            { href: "#services", label: "บริการ", icon:<i className='bx bxs-donate-heart'></i>  },
-                            { href: "#work", label: "สินค้า", icon: <i className='bx bx-laptop'></i>  },
-                            { href: "#about", label: "เกี่ยวกับเรา", icon: <i className='bx bxs-business'></i>  },
-                            { href: "#contact", label: "ติดต่อ", icon: <i className='bx bxs-comment-dots'></i>},
+                            { href: "#", label: "หน้าแรก", icon: <i className='bx bxs-home'></i> },
+                            { href: "#about", label: "เกี่ยวกับเรา", icon: <i className='bx bxs-business'></i> },
+                            { href: "#services", label: "บริการ", icon: <i className='bx bxs-donate-heart'></i> },
+                            { href: "#work", label: "สินค้า", icon: <i className='bx bx-laptop'></i> },
+
+                            { href: "#contact", label: "ติดต่อ", icon: <i className='bx bxs-comment-dots'></i> },
 
                         ].map((item, i) => (
                             <motion.a
@@ -128,9 +129,10 @@ export default function Navbar() {
                 <nav className="flex flex-col py-3 px-6 space-y-3 text-gray-700 font-medium">
                     {[
                         { href: "#hero", label: "หน้าแรก" },
+                        { href: "#about", label: "เกี่ยวกับเรา" },
                         { href: "#services", label: "บริการ" },
                         { href: "#work", label: "สินค้า" },
-                        { href: "#about", label: "เกี่ยวกับเรา" },
+
                         { href: "#contact", label: "ติดต่อ" },
                         // ✅ เพิ่มเมนูใบเสนอราคาในมือถือ
                     ].map((item, i) => (
